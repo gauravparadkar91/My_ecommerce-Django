@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Cart Items -->
+    <div class="col-md-9">
+        <h2>My Cart</h2>
+        <ul>
+            {% for item in cart_items %}
+            <li>{{ item.product.name }} - Quantity: {{ item.quantity }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'payment' %}" class="btn btn-primary">Proceed to Payment</a>
+        <a href="{% url 'clear_cart' %}" class="btn btn-danger">Clear Cart</a>
+    </div>
+</div>
+{% endblock %}
+
+
+{% comment %} {% extends 'base.html' %}
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+<h2>My Cart</h2>
+<ul>
+    {% for item in cart_items %}
+    <li>{{ item.product.name }} - Quantity: {{ item.quantity }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'payment' %}" class="btn btn-primary">Proceed to Payment</a>
+<a href="{% url 'clear_cart' %}" class="btn btn-danger">Clear Cart</a>
+{% endblock %} {% endcomment %}
